@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@theme{
+    
+    --color-primary: #a1a1a1;
+    --color-secondary: #ffffff;
+    --color-accent: #ffdffd;
+    --font-family: 'cursive','puppins';
+    --font-size-base: 1rem;
+    
+}
