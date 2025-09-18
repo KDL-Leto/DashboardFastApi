@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const FooterLinks = [

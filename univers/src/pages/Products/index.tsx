@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../containers/footer/Footer";
 import axios from "axios";
 
 const API_URL = `https://openlibrary.org/search.json?q=python`;
 
- export interface Books {
+export interface Books {
   key: string;
   title?: string;
   author_name?: string;
   cover_i?: string;
 }
-
-
-
-
-
-
 
 const ProductPage = () => {
   // axios states
@@ -33,12 +27,9 @@ const ProductPage = () => {
       .finally(() => setloading(false));
   }, []);
 
-// https://openlibrary.org/works/${id}.json
-
-
+  // https://openlibrary.org/works/${id}.json
 
   return (
-    
     <>
       {error && (
         <p className="text-red-600 text-2xl text-center mt-[10rem]">
@@ -55,17 +46,19 @@ const ProductPage = () => {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8 p-10">
-
         {PyBook.slice(0, 12).map((book) => (
-          
-
           <div
             key={book.key}
             className="shadow-md rounded-b-md bg-amber-50/50 p-8"
           >
-            <a target="_blank"
-                rel="noopener noreferrer" 
-                href={`https://openlibrary.org/${book.key}.json`} className="text-2xl text-yellow-800 pb-4">{book.title}</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://openlibrary.org/${book.key}.json`}
+              className="text-2xl text-yellow-800 pb-4"
+            >
+              {book.title}
+            </a>
             <img
               className="w-[4rem]"
               src={

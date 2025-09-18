@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../containers/footer/Footer";
-import axios from "axios";
 
 const API_URL = `https://openlibrary.org/search.json?q=python`;
 
@@ -10,7 +9,6 @@ interface Books {
   author_name?: string;
   cover_i?: string;
 }
-
 
 const PyBook = () => {
   // fetch sates

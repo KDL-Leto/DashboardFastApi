@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import React from "react";
-
 const SpinnerLoader = () => {
   return (
     <div className="bg-white pt-12 flex items-center justify-center">

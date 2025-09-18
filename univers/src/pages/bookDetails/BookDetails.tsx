@@ -9,18 +9,16 @@ interface BookDetails {
 }
 
 const BookDetails = () => {
-  const { id } = useParams()
-  const [error, setError] = useState();
+  const { id } = useParams();
+  const [, setError] = useState();
   const [selectedBook, setSelectedBook] = useState<BookDetails | null>(null); // help
 
   useEffect(() => {
     axios
-    .get(`https://openlibrary.org/works/${id}.json`)
-    .then((res) => setSelectedBook(res.data)) // why using data here?
-    .catch((err) => setError(err.message));
-  })
-   
-  
+      .get(`https://openlibrary.org/works/${id}.json`)
+      .then((res) => setSelectedBook(res.data)) // why using data here?
+      .catch((err) => setError(err.message));
+  });
 
   return (
     <>
@@ -34,16 +32,15 @@ const BookDetails = () => {
               ? selectedBook.description
               : selectedBook.description?.value || "No available"}
           </p>
-          { selectedBook.subject && (
+          {selectedBook.subject && (
             <p>
-                <strong> Subject: </strong>{selectedBook.subject}
+              <strong> Subject: </strong>
+              {selectedBook.subject}
             </p>
-          )
-
-          }
+          )}
         </div>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 };

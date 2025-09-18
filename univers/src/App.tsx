@@ -29,13 +29,12 @@ const NavItems = [
     title: "PyBook",
     path: "/PyBook",
   },
-  
 ];
 
 type Page = "Login" | "Signin" | "Dashboard";
 
 const Univers: React.FC = () => {
-  const [page, setPage] = useState<Page>("Login");
+  const [, setPage] = useState<Page>("Login");
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
@@ -67,37 +66,40 @@ const Univers: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/Products" element={<ProductPage />} />
           <Route path="/PyBook" element={<PyBook />} />
-          
+
           {/* Routes d'authentification */}
-          <Route 
-            path="/Login" 
+          <Route
+            path="/Login"
             element={
               token ? (
                 <Navigate to="/Dashboard" replace />
               ) : (
-                <Login onLogin={handleLogin} goSignin={() => setPage("Signin")} />
+                <Login
+                  onLogin={handleLogin}
+                  goSignin={() => setPage("Signin")}
+                />
               )
-            } 
+            }
           />
-          <Route 
-            path="/Signin" 
+          <Route
+            path="/Signin"
             element={
               token ? (
                 <Navigate to="/Dashboard" replace />
               ) : (
-                <Signin goLogin = {() => setPage("Login")}/>
+                <Signin goLogin={() => setPage("Login")} />
               )
-            } 
+            }
           />
-          <Route 
-            path="/Dashboard" 
+          <Route
+            path="/Dashboard"
             element={
               token ? (
                 <Dashboard token={token} onLogout={handleLogout} />
               ) : (
                 <Navigate to="/Login" replace />
               )
-            } 
+            }
           />
           {/* Redirection par défaut */}
           <Route path="*" element={<Navigate to="/" replace />} />

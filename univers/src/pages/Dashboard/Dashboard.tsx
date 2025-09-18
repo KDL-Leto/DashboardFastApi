@@ -42,7 +42,7 @@ const Dashboard: React.FC<DashboardProps> = ({ token, onLogout }) => {
 
         // Si la réponse est réussie (status 200-299)
         if (response.status >= 200 && response.status < 300) {
-          console.log(response.data)
+          console.log(response.data);
           setDashboardData(response.data);
           setMessage("Données chargées avec succès !");
         } else {
@@ -90,7 +90,6 @@ const Dashboard: React.FC<DashboardProps> = ({ token, onLogout }) => {
     setLoading(true);
 
     const fetchSecureData = async () => {
-
       try {
         const response = await axios.get(API_URL, {
           headers: { Authorization: `Bearer ${token}` },
@@ -179,13 +178,10 @@ const Dashboard: React.FC<DashboardProps> = ({ token, onLogout }) => {
               <div className="text-xs text-gray-500">
                 <p>Email: {dashboardData.user.email}</p>
                 {/* user */}
-                <p>
-                  Username: {dashboardData.user.userName }
-                </p>
+                <p>Username: {dashboardData.user.userName}</p>
                 <p>
                   Status: {dashboardData.user.is_active ? "Actif" : "Inactif"}
                 </p>
-                
               </div>
             )}
           </div>
@@ -206,7 +202,9 @@ const Dashboard: React.FC<DashboardProps> = ({ token, onLogout }) => {
             {dashboardData?.stats ? (
               <div className="space-y-2">
                 <p className="text-sm">Total: {dashboardData.stats.total}</p>
-                <p className="text-sm">Messages: {dashboardData.stats.messages}</p>
+                <p className="text-sm">
+                  Messages: {dashboardData.stats.messages}
+                </p>
                 <p className="text-sm">
                   Complétés: {dashboardData.stats.completed}
                 </p>
