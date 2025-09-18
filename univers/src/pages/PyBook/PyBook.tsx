@@ -24,7 +24,7 @@ const PyBook = () => {
 
       try {
         const response = await fetch(`${API_URL}`);
-        const data = (await response.json()) as Books[];
+        const data = await response.json();
         setBook(data.docs);
         console.log(data);
       } catch (e: any) {
